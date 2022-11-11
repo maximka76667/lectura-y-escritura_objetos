@@ -1,8 +1,6 @@
 package _1;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -34,14 +32,7 @@ public class Main {
 
 			objectOutputStream.close();
 
-			FileInputStream fileInputStream = new FileInputStream(path);
-			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-			for (int i = 0; i < temperaturas.size(); i++) {
-				int temperatura = (int) objectInputStream.readObject();
-				System.out.println(temperatura);
-			}
-
-			objectInputStream.close();
+			System.out.println("Listo");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
