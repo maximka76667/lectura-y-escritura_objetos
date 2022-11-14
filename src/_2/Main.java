@@ -4,6 +4,7 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -11,10 +12,11 @@ public class Main {
 
 		String path = "src\\_1\\temperaturas.bin";
 		ArrayList<Integer> temperaturas = new ArrayList<Integer>();
+		Scanner input = new Scanner(System.in);
 
 		try {
-			FileInputStream fileInputStream = new FileInputStream(path);
-			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(path));
+
 			while (true) {
 				try {
 					int temperatura = (int) objectInputStream.readObject();
@@ -27,7 +29,7 @@ public class Main {
 				}
 			}
 
-			temperaturas.sort((Integer a, Integer b) -> a - b);
+			temperaturas.sort((a, b) -> a - b);
 
 			System.out.println(temperaturas);
 			System.out.println("Temperatura minima: " + temperaturas.get(0));
@@ -39,5 +41,8 @@ public class Main {
 			e.printStackTrace();
 		}
 
+		System.out.print("Temperatura buscar: ");
+		System.out.println(temperaturas.contains(input.nextInt()) ? "Está en la lista" : "No está en la lista");
+		input.close();
 	}
 }
