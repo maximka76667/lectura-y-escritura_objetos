@@ -9,11 +9,6 @@ import _3.Contacto;
 
 public class Main {
 
-	public static void main(String[] args) {
-		showContacts();
-
-	}
-
 	public static void showContacts() {
 		String path = "src\\_3\\contactos.bin";
 		ArrayList<Contacto> contactos = new ArrayList<Contacto>();
@@ -38,6 +33,10 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void main(String[] args) {
+		showContacts();
 	}
 
 }
